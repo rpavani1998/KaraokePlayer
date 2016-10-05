@@ -39,9 +39,8 @@ def lyrics(name) :
 	lyrics = (lyrics.replace('<p class="verse">','\n'))
 	lyrics = (lyrics.replace('<br/>',' '))
 	lyrics = lyrics.replace('</p>',' ')
-	loc = '/Documents/Karaoke_player/lyrics'        
-	filename = loc + '/' + name + '.txt'
+	     
+	filename = name + '.txt'
 	with open(filename, "w") as text_file:
 		print("{}".format(lyrics), file=text_file)
-	print (lyrics)
 		  
