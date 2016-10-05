@@ -16,6 +16,11 @@ height = 700
 red = (255, 0, 0)
 blue = (50, 205, 50)
 
+def text_objects(text, font, colour):
+    textSurface = font.render(text, True, colour)
+    return textSurface, textSurface.get_rect()
+
+
 def message_display(text,width,height,fontsize,colour = black):
     largeText = pygame.font.Font('freesansbold.ttf',fontsize)
     TextSurf, TextRect = text_objects(text, largeText, colour)
@@ -91,10 +96,17 @@ def showlyrics(file_name):
              i += 18
 
      else :
-         lyrics(file_name.replace(".txt",""))
-
-	
-
+         lyric.lyrics(file_name.replace(".txt",""))
+         file = open(file_name)
+         for line in file :
+             line = line.replace('\n','')
+             if( i > 680):
+                message_display(line, j, 815, 18)
+                j += 18
+             else :
+                message_display(line, i, 250, 18)
+         #message_display("\n",i)
+             i += 18
 
 
 def Play_button(x, y,song):
